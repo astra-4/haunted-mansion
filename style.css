@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #16161f;
+    color: #e9e9f0;
+    font-family: 'VT323', monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(16px, 4vw, 40px) 16px 130px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: clamp(12px,3vw,20px);
+}
+
+.title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(15px,3vw,24px);
+    color: #e0a860;
+    margin: 0 0 8px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 12px rgba(224,168,96,0.4);
+}
+
+.tagline {
+    font-size: clamp(14px,2vw,18px);
+    color: #a8a8bb;
+}
+
+.progress {
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(9px, 1.4vw,12px);
+    color: #7fd8b0;
+    background: #202030;
+    border: 2px solid #4a4a63;
+    padding: 8px 14px;
+    border-radius: 2px;
+    margin-bottom: clamp(16px,3vw,28px);
+}
+
+.comic-frame {
+    width: 100%;
+    max-width: 860px;
+    background: #21212f;
+    border: 4px solid #4a4a63;
+    box-shadow: 0 0 0 2px #101018, 0 20px 60px rgba(5,5,10,0.7);
+    border-radius: 2px;
+    padding: clamp(18px, 4vw, 36px);
+    position: relative;
+}
+
+/* scene transitions and stuff */
