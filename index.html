@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Haunted Heist (oOoOoh)</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div id="root">
+            <header class="header">
+                <h1 class="title">tHe hAuNtEd hEiSt</h1>
+                <div class="tagline">some treasures were never meant to be stolen o.O</div>
+            </header>
+            <div class="progress" id="progress">Scene 1 of 5</div>
+            <main class="comic-frame" id="comicFrame">
+                <!--Scene: the mission/job whoahahhahh-->
+                <section class="scene" id="scene-job">
+                    <svg class="scene-art" width="220" height="150" viewBox="0 0 220 150">
+                        <defs><pattern id="p1" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><rect width="8" height="8" height="8" fill="#2b2b3d"></rect><line x1="0" y1="0" x2="0" y2="8" stroke="#3c3c52" stroke-width="4"></line></pattern></defs>
+                        <rect x="10" y="10" width="200" height="130" fill="url(#p1)" stroke="#6b6b85" stroke-width="3"></rect>
+                        <rect x="70" y="30" width="16" height="30" fill="rgba(230,170,80,0.6)" class="flicker"></rect>
+                    </svg>
+                    <div class="art-label">[ Blackwood Manor, stormy night]</div>
+                    <p class="story-text"><b>Marcus:</b> "The Heart of Blackwood. Hidden somewhere inside. One grab and we're all set for life. *insert comically evil laughter*"</p>
+                    <p class="story-text"><b>Lena:</b> "Try not to scream if you see a ghost."</p>
+                    <p class="story-text">The gate creaks open on its own. It slams shut behind you.</p>
+                    <button class="btn btn-primary" id="btnEnter">ENTER THE MANOR</button>
+                </section>
+
+                <!--Scene: separated! :O-->
+                <section class="scene hidden" id="scene-separated">
+                    <h2 class="scene-title">Separated</h2>
+                    <p class="story-text">The chandelier crashes! When the dust settles, your crew is gone. Only your flashlight remains.</p>
+                    <div class="object-grid">
+                        <div class="object-card" id="objBlueprint">
+                            <svg width="90" height="90" viewBox="0 0 90 90"><rect x="8" y="8" width="74" height="74" fill="#2f4a5c" stroke="#c99a4b" stroke-width="2"></rect><line x1="18" y1="25" x2="72" y2="25" stroke="#9fb3bb" stroke-width="2"></line><line x1="18" y1="40" x2="60" y2="40" stroke="#9fb3bb" stroke-width="2"></line><line x1="18" y1="55" x2="72" y2="55" stroke="#9fb3bb" stroke-width="2"></line></svg>
+                            <div class="art-label">[ blueprint ]</div>
+                        </div>
+                        <div class="object-card" id="objTablet">
+                            <svg width="90" height="90" viewBox="0 0 90 90"><rect x="20" y="10" width="50" height="70" rx="3" fill="#1e1e2a" stroke="#6b6b85" stroke-width="2"></rect><rect x="26" y="18" width="38" height="46" fill="rgba(120,220,190,0.5)"></rect></svg>
+                            <div class="art-label">[ Lena's tablet ]</div>
+                        </div>
+                        <div class="object-card" id="objCoin">
+                            <svg width="90" height="90" viewBox="0 0 90 90"><circle cx="45" cy="45" r="28" fill="#cfa646" stroke="#8a6d2e" stroke-width="3"></circle><text x="45" y="52" font-size="24" text-anchor="middle" fill="#3a2e13" id="coinFace">H</text></svg>
+                            <div class="art-label">[ Brigg's lucky coin ]</div>
+                        </div>
+                        <div class="object-card" id="objPortrait">
+                            <svg width="90" height="90" viewBox="0 0 90 90"><rect x="10" y="10" width="70" height="70" fill="#4a3626" stroke="#c99a4b" stroke-width="3"></rect><circle cx="30" cy="40" r="8" fill="#8a7a6a"></circle><circle cx="60" cy="40" r="8" fill="#8a7a6a"></circle><rect x="42" y="55" width="6" height="14" fill="#15151e"></rect></svg>
+                            <div class="art-label">[ family portrait ]</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-ghost hidden" id="btnFollow">FOLLOW THE FOOTSTEPS</button>
+                </section>
+
+                <!--Scene: da ghost-->
+            </main>
+        </div>
+    </body>
+</html>
