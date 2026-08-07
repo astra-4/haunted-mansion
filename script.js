@@ -247,6 +247,44 @@ document.getElementById('btnReturnEvelyn').addEventListener('click', () => {
 });
 
 
+//scene 5 vault and endings
+document.getElementById('btnShakes').addEventListener('click', () => {
+    document.getElementById('vaultIntro').classList.add('hidden');
+    document.getElementById('vaultChoice').classList.remove('hidden');
+    typeText("The room shakes as Evelyn appears beside Marcus' fury.", "NARRATION");
+});
+
+function isFullyExplored() {
+    const q = state.questionsAsked;
+    return state.blueprintSeen && state.tabletSeen && state.coinSeen && state.portraitSeen && q.crew && q.who && q.want && state.kitchenDone && state.studyDone && state.ballroomDone;
+}
+
+document.getElementById('btnHelpMarcus').addEventListener('click', *) => {
+    state.ending = 'greedy';
+    goToScene('ending');
+    document.getElementById('endingTitle').textContent = 'THE LAST HEIST';
+    document.getElementById('endingTitle').style.color = '#c96a52';
+    document.getElementById('endingText').textContent = 'You survived. Months later the stolen keepsakes are auctioned to private collectors. Historic Blackwood Manor Destroyed Overnight. But some things are worth more than money.';
+    document.getElementById('btnEpilogue').classList.toggle('hidden', !isFullyExplored());
+    typeText("You grab Marcus and run. He escapes with a few stolen keepsakes. The mansion collapses behind you. The Blackwood family is forgotten forever.", "NARRATION");
+};
+
+document.getElementById('btnReturnKeepsakes').addEventListener('click', () => {
+    state.ending = 'peaceful';
+    goToScene('ending');
+    document.getElementById('endingTitle').textContent = 'THE BLACKWOODS REMEMBERED';
+    document.getElementById('endingTitle').style.color = '#7fd8b0';
+    document.getElementById('endingText').textContent = 'The mansion becomes brighter, portraits restore, music fills the halls. Morning arrives, and the mansion slowly fades away — only wildflowers remain.';
+    document.getElementById('btnEpilogue').classList.toggle('hidden', !isFullyExplored());
+    typeText('You stop Marcus and return every stolen item. The mansion brightens, music fills the halls. "Thank you for giving us back our name," Evelyn whispers.', "EVELYN");
+});
+
+document.getElementById('btnEpilogue').addEventListener('click', () => {
+    goToScene('epilogue');
+    typeText("As you leave the hill, you hear footsteps. You turn. The mansion is gone.", "NARRATION");
+});
+
+
 
 //restart
 function restart() {
