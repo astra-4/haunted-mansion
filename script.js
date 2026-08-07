@@ -259,7 +259,7 @@ function isFullyExplored() {
     return state.blueprintSeen && state.tabletSeen && state.coinSeen && state.portraitSeen && q.crew && q.who && q.want && state.kitchenDone && state.studyDone && state.ballroomDone;
 }
 
-document.getElementById('btnHelpMarcus').addEventListener('click', *) => {
+document.getElementById('btnHelpMarcus').addEventListener('click', () => {
     state.ending = 'greedy';
     goToScene('ending');
     document.getElementById('endingTitle').textContent = 'THE LAST HEIST';
@@ -267,7 +267,7 @@ document.getElementById('btnHelpMarcus').addEventListener('click', *) => {
     document.getElementById('endingText').textContent = 'You survived. Months later the stolen keepsakes are auctioned to private collectors. Historic Blackwood Manor Destroyed Overnight. But some things are worth more than money.';
     document.getElementById('btnEpilogue').classList.toggle('hidden', !isFullyExplored());
     typeText("You grab Marcus and run. He escapes with a few stolen keepsakes. The mansion collapses behind you. The Blackwood family is forgotten forever.", "NARRATION");
-};
+});
 
 document.getElementById('btnReturnKeepsakes').addEventListener('click', () => {
     state.ending = 'peaceful';
