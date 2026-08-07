@@ -229,3 +229,77 @@ body {
     color: #d0d0e0;
     margin-top: 8px;
 }
+
+
+/* dialogue box */
+.dialogue-box {
+    margin-top: 24px;
+    width: 100%;
+    background: #14141c;
+    border: 2px solid #4a4a63;
+    border-radius: 2px;
+    padding: 16px 18px;
+    min-height: 64px;
+    box-sizing: border-box;
+}
+.dialogue-speaker {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: #7fd8b0;
+    margin-bottom: 8px;
+}
+.dialogue-text {
+    font-size: clamp(17px, 2.2vw, 20px);
+    line-height: 1.4;
+    margin: 0;
+    min-height: 1.4em;
+}
+
+.cursor {
+    animation: blink 1s step-end infinite;
+}
+.cursor.hidden {
+    display: none;
+}
+
+
+/* inventory bar */
+.inventory-bar {
+    position: fixed;
+    bottom: 0 ;
+    left: 0;
+    right: 0;
+    background: #14141c;
+    border-top: 2px solid #4a4a63;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px clamp(12px, 4vw, 32px);
+    z-index: 10;
+    flex-wrap: wrap;
+}
+.inventory-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: #a8a8bb;
+}
+.inventory-items {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.inventory-item {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #4a4a63;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #202030;
+    font-size: 18px;
+}
+.inventory-empty {
+    font-size: 15px;
+    color: #6b6b7f;
+}
