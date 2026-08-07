@@ -104,11 +104,110 @@ function goToScene(id) {
 
 
 
-//pass 1 scene 1 da j*b
+//scene 1 da j*b
 document.getElementById('btnEnter').addEventListener('click', () => {
     goToScene('separated');
     typeText("The chandelier crashes between the group. Dust fills the room. When it settles, everyone is gone.", "NARRATION");
 });
+
+//scene 2 seaparated + interatigve part
+function maybeShowFollowBtn() {
+    if (state.blueprintSeen || state.tabletSeen || state.coinSeen || state.portraitSeen) {
+        document.getElementById('btnFollow').classList.remove('hidden');
+    }
+}
+
+document.getElementById('objBlueprint').addEventListener('click', () => {
+    state.blueprintSeen = true;
+    typeText("Marcus circled one room: the Vault. Underneath, in different handwriting: Don't look for the vault", "BLUEPRINT");
+    maybeShowFollowBtn();
+});
+
+document.getElementById('objTablet').addEventListener('click', () => {
+    state.tabletSeen = true;
+    typeText("Lena's tablet glows: NO SIGNAL. Then the text changes by itself: YOU SHOULD LEAVE.", "LENA'S TABLET");
+    maybeShowFollowBtn();
+});
+
+document.getElementById('objCoin').addEventListener('click', () => {
+    if (!state.coinSeen) {
+        state.coinSeen = true;
+        addItem('coin');
+    }
+    state.coinFlips++;
+    document.getElementById('coinFace').textContent = state.coinFlips % 2 === 0 ? 'H' : 'T';
+    typeText("Briggs' lucky coin. It never lands the same way twice while you're watching.", "LUCKY COIN");
+    maybeShowFollowBtn();
+});
+
+document.getElementById('objPortrait').addEventListener('click', () => {
+    state.portraitSeen = true;
+    typeText('A wealthy family: mother, father, young daughter. Her face has been scratched away. "The Blackwoods, Summer of 1896."', "FAMILY PORTRAIT");
+    maybeShowFollowBtn();
+});
+
+document.getElementById('btnFollow').addEventListener('click', () => {
+    goToScene('ghost');
+    typeText("You follow soft footsteps into the library. Books float gently through the air. A girl appears near the fireplace.", "NARRATION");
+});
+
+
+//scene 3 the ghost dialogue tree
+function maybeShowContinue() {
+    const q = state.questionsAsked;
+    if (q.crew && q.who && q.want) {
+        document.getElementById('btnContinueGhost').classList.remove('hidden');
+    }
+}
+
+function askQuestion(key, btnId, text) {
+    state.questionsAsked[key] = true;
+    document.getElementById(btnId).classList.add('asked');
+    typeText(text, "EVELYN");
+    maybeShowContinue();
+}
+
+document.getElementById('qCrew').addEventListener('click', () => {
+    askQuestion('crew', 'qCrew', "Scattered, like leaves. They will find their own way, or they won't.");
+});
+
+document.getElementById('qWho').addEventListener('click', () => {
+    askQuestion('who', 'qWho', "I have watched thieves enter this house for over a century. None care about the truth. Only the treasure.");
+});
+
+document.getElementById('qWant').addEventListener('click', () => {
+    askQuestion('want', 'qWant', "To be remembered as more than a legend other people came here to rob.");
+});
+
+document.getElementById('btnContinueGhost').addEventListener('click', () => {
+    document.getElementById('ghostQuestions').classList.add('hidden');
+    document.getElementById('ghostHeart').classList.remove('hidden');
+    typeText('"My name is Evelyn," she says. "Did you come for the Heart?"', "EVELYN");
+});
+
+function answerHeart(answer, replyText) {
+    state.heartAnswer = answer;
+    document.getElementById('ghostHeart').classList.add('hidden');
+    document.getElementById('ghostExit').classList.remove('hidden');
+    typeText(replyText, "EVELYN");
+}
+
+document.getElementById('heartYes').addEventListener('click', () => {
+    answerHeart('yes', "Everyone comes looking for treasure. No one ever asks why this house is haunted.");
+});
+
+document.getElementById('heartMaybe').addEventListener('click', () => {
+    answerHeart('maybe', "Maybe is honest, at least. More honest than the others who came before you.");
+});
+
+document.getElementById('heartUnsure').addEventListener('click', () => {
+    answerHeart('unsure', "Neither did the others, by the end. Perhaps that's where the truth begins.");
+});
+
+document.getElementById('btnSearchManor').addEventListener('click', () => {
+    goToScene('investigation');
+    typeText('Evelyn fades, whispering: "Find the truth before you find the vault."', "NARRATION");
+})
 
 
 
