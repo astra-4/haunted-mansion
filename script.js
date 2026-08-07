@@ -112,6 +112,47 @@ document.getElementById('btnEnter').addEventListener('click', () => {
 
 
 
+
+//restart
+function restart() {
+    state.scene = 'job';
+    state.coinFlips = 0;
+    state.items=[];
+    state.blueprintSeen = false;
+    state.tabletSeen = false;
+    state.coinSeen = false;
+    state.portraitSeen = false;
+    state.questionsAsked = {
+        crew: false,
+        who: false,
+        want: false
+    };
+    state.heartAnswer = null;
+    state.kitchenDone = false;
+    state.studyDone = false;
+    state.ballroomDone = false;
+    state.ending = null;
+    document.getElementById('btnFollow').classList.add('hidden');
+    document.getElementById('ghostQuestions').classList.remove('hidden');
+    document.getElementById('ghostHeart').classList.add('hidden');
+    document.getElementById('ghostExit').classList.add('hidden');
+    document.getElementById('btnContinueGhost').classList.add('hidden');
+    ['qCrew', "qWho", 'qWant'].forEach(id => document.getElementById(id). classList.remove('asked'));
+    document.getElementById('btnReturnEvelyn').classList.add('hidden');
+    ['roomKitchen', 'roomStudy', 'roomBallroom'].forEach(id => document.getElementById(id).classList.remove('done'));
+    document.getElementById('kitchenLabel').textContent = 'click to search';
+    document.getElementById('studyLabel').textContent = 'click to search';
+    document.getElementById('ballroomLabel').textContent = 'click to search';
+    document.getElementById('vaultIntro').classList.remove('hidden');
+    document.getElementById('vaultChoice').classList.add('hidden');
+    document.getElementById('coinFace').textContent = 'H';
+    renderInventory();
+    goToScene('job');
+    typeText("A stormy night~ Your crew parks outside Blackwood Manor. One job. One grab. Everyone set for life.", "NARRATION");
+}
+document.getElementById('btnRestart1').addEventListener('click', restart);
+document.getElementById('btnRestart2').addEventListener('click', restart);
+
 //loading
 updateProgress();
 renderInventory();
