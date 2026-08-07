@@ -31,11 +31,11 @@ const inventoryDefs = {
     journal: {
         label: "Macrus' Journal",
         glyph: '📓'
-    }
+    },
     photo: {
         label: 'Family Photograph',
         glyph: '🖼'
-    },
+    }
 };
 
 let typer = null;
