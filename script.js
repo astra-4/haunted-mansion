@@ -210,6 +210,42 @@ document.getElementById('btnSearchManor').addEventListener('click', () => {
 })
 
 
+//scene 4 investigation
+function maybeShowReturnBtn() {
+    if (state.kitchenDone && state.studyDone && state.ballroomDone) {
+        document.getElementById('btnReturnEvelyn').classList.remove('hidden');
+    }
+}
+
+document.getElementById('roomKitchen').addEventListener('click', () => {
+    if (!state.kitchenDone) { state.kitchenDone = true; addItem('lockpicks'); }
+    document.getElementById('roomKitchen').classList.add('done');
+    document.getElementById('kitchenLabel').textContent = 'investigated';
+    typeText("Lena's lock-pick kit sits by a broken dinner table. A newspaper headline: BLACKWOOD FAMILY VANISHES. Not dies — vanishes.", "KITCHEN");
+    maybeShowReturnBtn();
+});
+
+document.getElementById('roomStudy').addEventListener('click', () => {
+    if (!state.studyDone) { state.studyDone = true; addItem('journal'); }
+    document.getElementById('roomStudy').classList.add('done');
+    document.getElementById('studyLabel').textContent = 'investigated';
+    typeText('Marcus\'s notebook is full of sketches and research. One page is torn out. The last remaining line: "The Heart isn\'t an object.', "STUDY");
+    maybeShowReturnBtn();
+});
+
+document.getElementById('roomBallroom').addEventListener('click', () => {
+    if (!state.ballroomDone) { state.ballroomDone = true; addItem('photo'); }
+    document.getElementById('roomBallroom').classList.add('done');
+    document.getElementById('ballroomLabel').textContent = 'investigated';
+    typeText("Briggs' backpack lies beside an old phonograph. Playing it fills the room with laughter, then crying, then silence.", "BALLROOM");
+    maybeShowReturnBtn();
+});
+
+document.getElementById('btnReturnEvelyn').addEventListener('click', () => {
+    goToScene('vault');
+    typeText("The hidden vault opens. Inside: no treasure. Just shelves of letters, photographs, and keepsakes.", "NARRATION");
+});
+
 
 
 //restart
