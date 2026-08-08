@@ -43,7 +43,7 @@ let typer = null;
 function typeText(full, speaker) {
     clearInterval(typer);
     document.getElementById('dialogueSpeaker').textContent = speaker || 'NARRATION';
-    const textEl = document.getElementById('dialoghueTextInner');
+    const textEl = document.getElementById('dialogueTextInner');
     const cursor = document.getElementById('cursor');
     cursor.classList.add('hidden');
     let i = 0;
@@ -72,7 +72,7 @@ function updateProgress() {
         ending: 5,
         epilogue: 5
     };
-    document.getElementById('progress').textContent = 'Scene ${stepMap[state.scene] || 1} of 5';
+    document.getElementById('progress').textContent = `Scene ${stepMap[state.scene] || 1} of 5`;
 }
 
 function addItem(key) {
@@ -310,7 +310,7 @@ function restart() {
     document.getElementById('ghostHeart').classList.add('hidden');
     document.getElementById('ghostExit').classList.add('hidden');
     document.getElementById('btnContinueGhost').classList.add('hidden');
-    ['qCrew', "qWho", 'qWant'].forEach(id => document.getElementById(id). classList.remove('asked'));
+    ['qCrew', "qWho", 'qWant'].forEach(id => document.getElementById(id).classList.remove('asked'));
     document.getElementById('btnReturnEvelyn').classList.add('hidden');
     ['roomKitchen', 'roomStudy', 'roomBallroom'].forEach(id => document.getElementById(id).classList.remove('done'));
     document.getElementById('kitchenLabel').textContent = 'click to search';
