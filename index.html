@@ -20,7 +20,7 @@
                 <!--Scene: the mission/job whoahahhahh-->
                 <section class="scene" id="scene-job">
                     <svg class="scene-art" width="220" height="150" viewBox="0 0 220 150">
-                        <defs><pattern id="p1" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><rect width="8" height="8" height="8" fill="#2b2b3d"></rect><line x1="0" y1="0" x2="0" y2="8" stroke="#3c3c52" stroke-width="4"></line></pattern></defs>
+                        <defs><pattern id="p1" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#2b2b3d"></rect><line x1="0" y1="0" x2="0" y2="8" stroke="#3c3c52" stroke-width="4"></line></pattern></defs>
                         <rect x="10" y="10" width="200" height="130" fill="url(#p1)" stroke="#6b6b85" stroke-width="3"></rect>
                         <rect x="70" y="30" width="16" height="30" fill="rgba(230,170,80,0.6)" class="flicker"></rect>
                     </svg>
@@ -57,7 +57,113 @@
                 </section>
 
                 <!--Scene: da ghost-->
+                <section class="scene hidden" id="scene-ghost">
+                    <svg width="120" height="150" viewBox ="0 0 120 150">
+                        <path d="M20 130 L20 60 Q20 20 60 20 Q100 20 100 60 L100 130 L88 118 L76 130 L64 118 L52 130 L40 118 L28 130 Z" fill="rgba(140,170,190,0.7)" stroke="#e6e6f0" stroke-width="2"></path>
+                        <circle cx="42" cy="65" r="5" fill="#15151e"></circle>
+                        <circle cx="78" cy="65" r="5" fill="#15151e"></circle>
+                    </svg>
+                    <h2 class="scene-title ghost-title">Evelyn Blackwood</h2>
+                    <div id="ghostQuestions">
+                        <p class="story-text">
+                            "You're later than the others," she says, watching you calmly.
+                        </p>
+                        <div class="btn-row">
+                            <button class="btn btn-choice" id="qCrew">Where's my crew?</button>
+                            <button class="btn btn-choice" id="qWho">Who are you?</button>
+                            <button class="btn btn-choice" id="qWant">What do you want?</button>
+                        </div>
+                        <button class="btn btn-primary hidden" id="btnContinueGhost">CONTINUE</button>
+                    </div>
+                    <div id="ghostHeart" class="hidden">
+                        <p class="story-text">"Did you come for the Heart?" she asks.</p>
+                        <div class="btn-row">
+                            <button class="btn btn-choice" id="heartYes">Yes.</button>
+                            <button class="btn btn-choice" id="heartMaybe">Maybe.</button>
+                            <button class="btn btn-choice" id="heartUnsure">I don't know anymore.</button>
+                        </div>
+                    </div>
+                    <div id="ghostExit" class="hidden">
+                        <p class="story-text">"Everyone comes looking for treasure. No one ever asks why this house is haunted. Find the truth before you find the vault."</p>
+                        <button class="btn btn-primary" id="btnSearchManor">SEARCH THE MANOR</button>
+                    </div>
+                </section>
+
+                <!--da investigation scene-->
+                <section class="scene hidden" id="scene-investigation">
+                    <h2 class="scene-title">The Investigation</h2>
+                    <div class="room-grid">
+                        <div class="room-card" id="roomKitchen">
+                            <svg width="100" height="90" viewBox="0 0 100 90"><rect x="10" y="30" width="80" height="50" fill="#4a3826" stroke="#6b6b85" stroke-width="2"></rect><rect x="20" y="10" width="60" height="20" fill="#563f2a" stroke="#6b6b85" stroke-width="2"></rect></svg>
+                            <div class="room-name">KITCHEN</div>
+                            <div class="art-label" id="kitchenLabel">click to search</div>
+                        </div>
+                        <div class="room-card" id="roomStudy">
+                            <svg width="100" height="90" viewBox="0 0 100 90"><rect x="15" y="15" width="70" height="65" fill="#2e2e3d" stroke="#6b6b85" stroke-width="2"></rect><line x1="15" y1="40" x2="85" y2="40" stroke="#6b6b85" stroke-width="2"></line><line x1="15" y1="60" x2="85" y2="60" stroke="#6b6b85" stroke-width="2"></line></svg>
+                            <div class="room-name">STUDY</div>
+                            <div class="art-label" id="studyLabel">click to search</div>
+                        </div>
+                        <div class="room-card" id="roomBallroom">
+                            <svg width="100" height="90" viewBox="0 0 100 90"><circle cx="50" cy="45" r="30" fill="none" stroke="#6b6b85" stroke-width="2"></circle><rect x="35" y="55" width="30" height="20" fill="#4a2e1e" stroke="#6b6b85" stroke-width="2"></rect></svg>
+                            <div class="room-name">BALLROOM</div>
+                            <div class="art-label" id="ballroomLabel">click to search</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary hidden" id="btnReturnEvelyn">RETURN TO EVELYN</button>
+                </section>
+
+                <!--vault scene-->
+                <section class="scene hidden" id="scene-vault">
+                    <svg width="100" height="100" viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" fill="#2a2a38" stroke="#c99a4b" stroke-width="3"></rect><circle cx="50" cy="50" r="10" fill="none" stroke="#c99a4b" stroke-width="3"></circle></svg>
+                    <div class="art-label">[ the vault, empty of gold, full of keepsakes ]</div>
+                    <div id="vaultIntro">
+                        <p class="story-text">Marcus is already inside, furious, smashing shelves of letters and photographs. "WHERE IS IT?" he screams.</p>
+                        <p class="story-text">Evelyn appears. "You're standing inside it," she says quietly. The Heart of Blackwood was never gold — it was the family's history, stolen piece by piece by every thief who came before you.</p>
+                        <button class="btn btn-primary" id="btnShakes">THE MANSION SHAKES</button>
+                    </div>
+                    <div id="vaultChoice" class="hidden">
+                        <p class="story-text">Marcus grabs one last photograph as the walls begin to crack.</p>
+                        <div class="btn-row">
+                            <button class="btn btn-danger" id="btnHelpMarcus">HELP MARCUS ESCAPE</button>
+                            <button class="btn btn-peace" id="btnReturnKeepsakes">RETURN THE KEEPSAKES</button>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!--ending scene-->
+                <section class="scene hidden" id="scene-ending">
+                    <h2 class="scene-title" id="endingTitle"></h2>
+                    <p class="story-text" id="endingText"></p>
+                    <button class="btn btn-primary hidden" id="btnEpilogue">VIEW EPILOGUE</button>
+                    <button class="btn btn-secondary" id="btnRestart1">PLAY AGAIN</button>
+                </section>
+
+
+                <!--epilogue scene-->
+                <section class="scene hidden" id="scene-epilogue">
+                    <svg width="140" height="90" viewBox="0 0 140 90"><rect x="20" y="20" width="100" height="50" fill="#8a6d2e" stroke="#c99a4b" stroke-width="3"></rect></svg>
+                    <p class="story-text">Only an old brass plaque remains where the manor stood. It reads:<br /><b>Blackwood Manor · 1891–2026</b><br />"A home is remembered not by what it owns... but by who remembers it."</p>
+                    <p class="story-text">THe lucky coin is still in your pocket. When you flip it one last time, it lands perfectly upright.</p>
+                    <button class="btn btn-secondary" id="btnRestart2">PLAY AGAIN</button>
+                </section>
+
+
+                <!--dialogue box-->
+                <div class="dialogue-box" id="dialogueBox">
+                    <div class="dialogue-speaker" id="dialogueSpeaker">NARRATION</div>
+                    <p class="dialogue-text"><span id="dialogueTextInner"></span><span id="cursor" class="cursor">_</span></p>
+                </div>
             </main>
+
+            <!--footer-->
+            <footer class="inventory-bar">
+                <div class="inventory-label">INVENTORY</div>
+                <div class="inventory-items" id="inventoryItems"></div>
+                <div class="inventory-empty" id="inventoryEmpty">No evidence collected yet</div>
+            </footer>
+
+            <script src="script.js"></script>
         </div>
     </body>
 </html>
