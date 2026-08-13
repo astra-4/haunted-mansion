@@ -12,6 +12,14 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 24px 16px 130px;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.015) 0px,
+            rgba(255,255,255,0.015) 1px,
+            transparent 1px,
+            transparent 3px
+        );
 }
 
 .header {
@@ -45,10 +53,11 @@ body {
 .comic-frame {
     width: 100%;
     max-width: 860px;
-    background: #21212f;
     border: 4px solid #4a4a63;
     padding: 28px;
     position: relative;
+    border-radius: 0;
+    box-shadow: 6px 6px 0 #0b0b10;
 }
 
 .scene {
@@ -103,12 +112,18 @@ body {
 .btn {
     font-family: 'Press Start 2P', monospace;
     font-size: 11px;
-    border: none;
+    border: 3px solid #0b0b10;
     padding: 13px 20px;
     cursor: pointer;
+    border-radius: 0;
+    box-shadow: 4px 4px 0 #0b0b10;
+    image-rendering: pixelated;
 }
+
 .btn:active {
-    padding: 14px 20px 12px;
+    padding: 13px 20px;
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 #0b0b10;
 }
 .btn-primary {
     color: #16161f;
@@ -133,15 +148,25 @@ body {
 }
 .btn-choice {
     font-family: 'VT323', monospace;
-    font-size: 17px;
+    font-size: 19px;
     color: #e9e9f0;
     background: #21212f;
-    border: 2px solid #4a4a63;
-    padding: 10px 18px;
+    border: 3px solid #4a4a63;
+    padding: 9px 18px;
     cursor: pointer;
+    border-radius: 0;
+    box-shadow: 3px 3px 0 #0b0b10;
 }
+
 .btn-choice:hover {
-    border-color: #7fd8b0;
+    border-color: #e0a860;
+    background: #2e2e40;
+    transform: translate(-1px, -1px);
+}
+
+.btn-choice:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 #0b0b10;
 }
 .btn-choice.asked {
     color: #6b6b7f;
@@ -167,13 +192,23 @@ body {
     flex: 1 1 150px;
     max-width: 180px;
     background: #21212f;
-    border: 2px solid #4a4a63;
+    border: 3px solid #4a4a63;
     padding: 14px;
     text-align: center;
+    border-radius: 0;
+    box-shadow: 4px 4px 0 #0b0b10;
 }
+
 .object-card:hover, .room-card:hover {
     background: #2e2e40;
     border-color: #e0a860;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #0b0b10;
+}
+
+.object-card:active, .room-card:active {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 #0b0b10;
 }
 
 .room-card.done {
@@ -191,10 +226,12 @@ body {
 .dialogue-box {
     margin-top: 24px;
     width: 100%;
-    background: #14141c;
-    border: 2px solid #4a4a63;
+    background: #0d0d13;
+    border: 3px solid #4a4a63;
     padding: 16px 18px;
     min-height: 64px;
+    border-radius: 0;
+    box-shadow: 5px 5px 0 #0b0b10;
 }
 .dialogue-speaker {
     font-family: 'Press Start 2P', monospace;
@@ -223,8 +260,8 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #14141c;
-    border-top: 2px solid #4a4a63;
+    background: #0d0d13;
+    border-top: 3px solid #4a4a63;
     display: flex;
     align-items: center;
     gap: 14px;
@@ -245,12 +282,14 @@ body {
 .inventory-item {
     width: 40px;
     height: 40px;
-    border: 2px solid #4a4a63;
+    border: 3px solid #4a4a63;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #14141c;
+    background: #0d0d13;
     font-size: 18px;
+    border-radius: 0;
+    box-shadow: 3px 3px 0 #0b0b10;
 }
 .inventory-empty {
     font-size: 15px;
